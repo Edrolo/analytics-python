@@ -9,7 +9,12 @@ except ImportError:
 # Don't import analytics-python module here, since deps may not be installed
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'segment'))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'analytics'))
-from segment.analytics.version import VERSION
+
+# ddc: This was causing the whole app to be imported into setup.py
+#  I've just hardcoded the thing they're trying to import.
+#  TODO: use upstream once they sort themselves out.
+# from segment.analytics.version import VERSION
+VERSION = '2.0.0'
 
 long_description = '''
 Segment is the simplest way to integrate analytics into your application.
