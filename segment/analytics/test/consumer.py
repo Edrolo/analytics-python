@@ -61,7 +61,7 @@ class TestConsumer(unittest.TestCase):
                             upload_interval=upload_interval)
         with mock.patch('analytics.consumer.post') as mock_post:
             consumer.start()
-            for i in range(0, 3):
+            for i in range(3):
                 track = {
                     'type': 'track',
                     'event': 'python event %d' % i,
@@ -81,7 +81,7 @@ class TestConsumer(unittest.TestCase):
                             upload_interval=upload_interval)
         with mock.patch('analytics.consumer.post') as mock_post:
             consumer.start()
-            for i in range(0, upload_size * 2):
+            for i in range(upload_size * 2):
                 track = {
                     'type': 'track',
                     'event': 'python event %d' % i,

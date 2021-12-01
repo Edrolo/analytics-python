@@ -58,11 +58,7 @@ class TestUtils(unittest.TestCase):
 
     @classmethod
     def test_bytes(cls):
-        if six.PY3:
-            item = bytes(10)
-        else:
-            item = bytearray(10)
-
+        item = bytes(10) if six.PY3 else bytearray(10)
         utils.clean(item)
 
     def test_clean_fn(self):
